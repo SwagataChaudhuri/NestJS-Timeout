@@ -18,11 +18,14 @@ import { TimeoutInterceptor } from './interceptors/timeout.interceptor';
     {
       provide: APP_INTERCEPTOR,
       useFactory: (configService: ConfigService) => {
-        const timeoutInMilliseconds: number = parseInt(configService.get<any>('TIMEOUT_IN_MILLISECONDS', 2500));
+        const timeoutInMilliseconds = parseInt(
+          configService.get<string>('TIMEOUT_IN_MILLISECONDS', '2500'),
+          10,
+        );
         return new TimeoutInterceptor(timeoutInMilliseconds);
       },
       inject: [ConfigService],
-    }
+    },
   ],
 })
-export class AppModule { }
+export class AppModule {}

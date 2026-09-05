@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { GreetingsController } from '../greetings.controller';
 import { GreetingsService } from '../greetings.service';
 
-const response = { "message": "Welcome User !! Greetings from NestJS !!" }
+const response = { message: 'Welcome User !! Greetings from NestJS !!' };
 
 describe('GreetingsController', () => {
   let controller: GreetingsController;
@@ -39,5 +39,4 @@ describe('GreetingsController', () => {
   it('GreetingsController - getGreetingsDelayed() should return greetings message with delay', async () => {
     expect(await controller.getGreetingsDelayed()).toEqual(response);
   });
-
 });

@@ -4,6 +4,6 @@ import { GreetingsService } from './greetings.service';
 
 @Module({
   controllers: [GreetingsController],
-  providers: [GreetingsService]
+  providers: [GreetingsService],
 })
 export class GreetingsModule {}

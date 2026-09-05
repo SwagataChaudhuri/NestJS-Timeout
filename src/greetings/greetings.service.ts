@@ -1,19 +1,23 @@
 import { Injectable, Logger } from '@nestjs/common';
+import { GreetingsResponseDto } from './dto/greetings-response.dto';
 
 @Injectable()
 export class GreetingsService {
   private readonly logger = new Logger(this.constructor.name);
 
-  async getGreetings(): Promise<any> {
-    return { "message": "Welcome User !! Greetings from NestJS !!" };
+  async getGreetings(): Promise<GreetingsResponseDto> {
+    return { message: 'Welcome User !! Greetings from NestJS !!' };
   }
 
-  async getGreetingsDelayed(): Promise<any> {
-    const delay : number = await this.getDelayInMilliseconds();
-    this.logger.log(`Delaying response by ${Math.floor(delay / 1000)} secs`);
+  async getGreetingsDelayed(): Promise<GreetingsResponseDto> {
+    const delay: number = await this.getDelayInMilliseconds();
+    const delayInSeconds = Math.floor(delay / 1000);
+    this.logger.log(`Delaying response by ${delayInSeconds} secs`);
     return new Promise((resolve) => {
       setTimeout(() => {
-        resolve({ "message": `Welcome User !! Greetings from NestJS with ${Math.floor(delay / 1000)} secs delay !!` });
+        resolve({
+          message: `Welcome User !! Greetings from NestJS with ${delayInSeconds} secs delay !!`,
+        });
       }, delay);
     });
   }
@@ -24,5 +28,4 @@ export class GreetingsService {
     const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
     return randomNumber * 1000;
   }
-
 }
