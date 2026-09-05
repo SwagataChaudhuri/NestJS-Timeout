@@ -9,7 +9,7 @@
                 "<node_internals>/**"
             ],
             "cwd": "${workspaceRoot}",
-            "command": "npm run start:dev",
+            "command": "pnpm run start:dev"
         }
     ]
 }

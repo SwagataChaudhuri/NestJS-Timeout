@@ -1,6 +1,7 @@
 # Compiled Output
 /dist
 /node_modules
+*.tsbuildinfo
 
 # Environment Secrets
 .env

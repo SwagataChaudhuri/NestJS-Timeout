@@ -17,6 +17,13 @@ The second endpoint `/greetings/delayed` is configured to return a respose with 
 
 ---
 
+## **Prerequisites**
+
+- Node.js `>= 24.9` (required for Jest to load the ESM-only `@nestjs/*` v12 packages during tests)
+- [pnpm](https://pnpm.io/)
+
+---
+
 ## **Installation**
 
 ```bash
@@ -54,6 +61,10 @@ Execute the below command to run the application in production mode:
 $ pnpm run start:prod
 ```
 
+Once running, the Swagger API documentation is available at `/api` (e.g. `http://localhost:4000/api`).
+
+---
+
 ## **Testing**
 
 The application has tests configured using `Jest`. The tests are located in the `test` directory. The tests are also configured to generate coverage reports. The coverage reports are generated in the `coverage` directory.
@@ -65,6 +76,15 @@ Execute the below command to run the unit tests:
 ```bash
 $ pnpm run test
 ```
+
+### **End-to-End Tests**
+
+Execute the below command to run the end-to-end tests:
+
+```bash
+$ pnpm run test:e2e
+```
+
 ### **Coverage Reports**
 
 Execute the below command to run the tests and generate the coverage reports:

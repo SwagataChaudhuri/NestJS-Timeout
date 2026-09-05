@@ -1,8 +1,10 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { GreetingsService } from '../greetings.service';
 
-const response1 = { "message": "Welcome User !! Greetings from NestJS !!" }
-const response2 = { "message": "Welcome User !! Greetings from NestJS with 1 secs delay !!" }
+const response1 = { message: 'Welcome User !! Greetings from NestJS !!' };
+const response2 = {
+  message: 'Welcome User !! Greetings from NestJS with 1 secs delay !!',
+};
 
 describe('GreetingsService', () => {
   let service: GreetingsService;
@@ -32,7 +34,9 @@ describe('GreetingsService', () => {
   });
 
   it('GreetingsService - getGreetings() should return greetings message with configured delay', async () => {
-    const spyGetDelayInMilliseconds = jest.spyOn(service as any, 'getDelayInMilliseconds').mockReturnValue(1000);
+    const spyGetDelayInMilliseconds = jest
+      .spyOn(service as any, 'getDelayInMilliseconds')
+      .mockReturnValue(1000);
     const response = await service.getGreetingsDelayed();
     expect(spyGetDelayInMilliseconds).toHaveBeenCalledTimes(1);
     expect(response).toEqual(response2);

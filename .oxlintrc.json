@@ -1,0 +1,17 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "unicorn", "oxc", "jest"],
+  "categories": {
+    "correctness": "error"
+  },
+  "rules": {
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-floating-promises": "warn"
+  },
+  "env": {
+    "builtin": true,
+    "node": true,
+    "jest": true
+  },
+  "ignorePatterns": ["dist/**"]
+}
